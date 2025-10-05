@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leitor de PDF com Voz</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="header">
+          <h1>📖 Leitor PDF/Word</h1>
+          <div class="file-input-wrapper">
+            <input
+              type="file"
+              id="pdfInput"
+              class="file-input"
+              accept="application/pdf,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            />
+            <label for="pdfInput" class="file-input-label">
+              Carregar PDF ou Word
+            </label>
+          </div>
+        </div>
+
+        <div class="pages-container" id="pagesContainer">
+          <div class="empty-state">
+            <p style="text-align: center; color: var(--gray); margin-top: 50px">
+              Nenhum arquivo carregado
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="toolbar">
+          <div class="controls-group">
+            <button class="control-button" id="sidebarToggle">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            </button>
+            <button class="control-button" id="editBtn">
+              <span>✏️</span> Editar
+            </button>
+            <button class="control-button" id="saveBtn" style="display: none">
+              <span>💾</span> Salvar
+            </button>
+            <button class="control-button" id="cancelBtn" style="display: none">
+              <span>❌</span> Cancelar
+            </button>
+          </div>
+
+          <div class="controls-group">
+            <button class="control-button" id="playBtn">
+              <span>▶️</span> Ler
+            </button>
+            <button class="control-button" id="pauseBtn">
+              <span>⏸️</span> Pausar
+            </button>
+            <button class="control-button" id="stopBtn">
+              <span>⏹️</span> Parar
+            </button>
+          </div>
+
+          <div class="controls-group">
+            <label style="font-size: 14px; color: var(--gray)"
+              >Velocidade:</label
+            >
+            <select
+              id="speedSelect"
+              class="control-button"
+              style="padding: 8px"
+            >
+              <option value="0.5">0.5x</option>
+              <option value="0.8">0.8x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.2">1.2x</option>
+              <option value="1.5">1.5x</option>
+              <option value="2">2x</option>
+            </select>
+          </div>
+
+          <div class="controls-group">
+            <label style="font-size: 14px; color: var(--gray)">Voz:</label>
+            <select
+              id="voiceSelect"
+              class="control-button"
+              style="padding: 8px"
+            >
+              <option value="">Carregando vozes...</option>
+            </select>
+          </div>
+
+          <div class="page-navigation">
+            <button class="control-button" id="prevBtn">
+              <span>←</span> Anterior
+            </button>
+            <span class="page-info" id="pageInfo">Página 0 de 0</span>
+            <button class="control-button" id="nextBtn">
+              Próximo <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="text-container">
+          <div class="text-content" id="textContent" contenteditable="false">
+            <div
+              style="text-align: center; margin-top: 100px; color: var(--gray)"
+            >
+              <h2 style="font-size: 24px; margin-bottom: 16px">
+                Bem-vindo ao Leitor de PDF
+              </h2>
+              <p>Carregue um PDF para começar a ouvir o conteúdo</p>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
