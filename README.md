@@ -1,6 +1,6 @@
 # 📖 Leitor TTS
 
-DocListener é um leitor de documentos construído com HTML, CSS e JavaScript, projetado para converter o conteúdo de arquivos **PDF**, **Microsoft Word (DOCX)** e **Texto Simples (TXT)** em áudio, utilizando o recurso Text-to-Speech (TTS) nativo do navegador. É uma ferramenta ideal para quem busca acessibilidade, estudo, multitarefas ou simplesmente prefere ouvir o conteúdo.
+Leitor TTS é um leitor de documentos construído com HTML, CSS e JavaScript, projetado para converter o conteúdo de arquivos **PDF**, **Microsoft Word (DOCX)** e **Texto Simples (TXT)** em áudio, utilizando o recurso Text-to-Speech (TTS) nativo do navegador. É uma ferramenta ideal para quem busca acessibilidade, estudo, multitarefas ou simplesmente prefere ouvir o conteúdo.
 
 ## ✨ Funcionalidades Principais
 
